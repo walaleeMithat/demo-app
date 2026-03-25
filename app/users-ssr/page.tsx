@@ -1,4 +1,3 @@
-// app/ssr/page.tsx
 import { User } from '../types/user';
 import { unstable_noStore as noStore } from 'next/cache';
 
@@ -24,6 +23,7 @@ export default async function SSRPage() {
     return (
         <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
             <h1>SSR - Server-Side Rendering</h1>
+
             <p style={{ color: 'red', fontWeight: 'bold' }}>
                 ต้องเห็นรายชื่อ + ID เปลี่ยนทุกครั้งที่รีเฟรช
             </p>

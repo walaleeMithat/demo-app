@@ -1,4 +1,3 @@
-// app/csr/page.tsx
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
@@ -9,13 +8,13 @@ export default function CSRPage() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [fetchedAt, setFetchedAt] = useState<string>('');
+    const [isClient, setIsClient] = useState(false);
 
     const fetchUsers = useCallback(async () => {
         setLoading(true);
         setError(null);
 
         try {
-            // สุ่ม skip ฝั่ง browser ได้เลย เพราะ CSR ไม่มี server cache
             const skip = Math.floor(Math.random() * 200);
 
             const res = await fetch(
@@ -36,8 +35,12 @@ export default function CSRPage() {
     }, []);
 
     useEffect(() => {
+        console.log('👉 RUN ON CLIENT');
+        setIsClient(true);
         fetchUsers();
     }, [fetchUsers]);
+
+    console.log('👉 RUN WHERE?', typeof window);
 
     if (loading) return <div style={{ padding: '20px' }}>Loading...</div>;
     if (error) return <div style={{ padding: '20px', color: 'red' }}>Error: {error}</div>;
@@ -47,7 +50,10 @@ export default function CSRPage() {
             <h1>CSR - Client-Side Rendering (Next.js 16)</h1>
             <p>ข้อมูลถูกดึงและ render บนเบราว์เซอร์ฝั่ง client</p>
 
-            {/* ปุ่ม Refresh — เหมาะกับ CSR เพราะดึงข้อมูลใหม่โดยไม่ reload หน้า */}
+            {isClient && (
+                <p style={{ color: 'green', fontWeight: 'bold' }}>✔ รันบน Client จริง!</p>
+            )}
+
             <button
                 onClick={fetchUsers}
                 style={{
