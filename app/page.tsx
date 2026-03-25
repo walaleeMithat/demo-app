@@ -7,7 +7,7 @@ export default function Home() {
         <div style={{ padding: 20 }}>
             <h1>🏠 Home Page</h1>
 
-            <Link href="/users">
+            <Link href="/usersList">
                 <button>ไปหน้า Users</button>
             </Link>
         </div>

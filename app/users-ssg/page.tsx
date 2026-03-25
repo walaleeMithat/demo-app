@@ -1,13 +1,13 @@
 import { User } from '../types/user';
 
-export const dynamic = 'force-static';        // บังคับให้เป็น Static
-export const revalidate = false;              // ไม่ revalidate อัตโนมัติ
+export const dynamic = 'force-static';
+export const revalidate = false;
 
 async function getUsers(): Promise<User[]> {
     const res = await fetch('https://dummyjson.com/users?limit=3', {
-        cache: 'force-cache',          // บังคับ cache ตลอดไป (Static)
+        cache: 'force-cache',
         next: {
-            revalidate: false,           // ไม่ให้ revalidate
+            revalidate: false,
         },
     });
 

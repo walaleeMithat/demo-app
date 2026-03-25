@@ -1,0 +1,54 @@
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.userGrid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.loading,
+.error {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 40px;
+}
+
+.error {
+    color: #e74c3c;
+}
+
+.nextButton {
+    display: block;
+    margin: 0 auto;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.nextButton:hover:not(:disabled) {
+    background-color: #0051cc;
+}
+
+.nextButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}

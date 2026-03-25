@@ -5,12 +5,11 @@ import { unstable_noStore as noStore } from 'next/cache';
 async function getUsers(): Promise<User[]> {
     noStore();
 
-    // สุ่ม skip เพื่อให้ได้คนละชุดทุกครั้ง (dummyjson มี 208 users)
     const skip = Math.floor(Math.random() * 200);
 
     const res = await fetch(
         `https://dummyjson.com/users?limit=6&skip=${skip}`,
-        { cache: 'no-store' }  // แค่นี้พอ ไม่ต้องใส่ header เพิ่ม
+        { cache: 'no-store' }
     );
 
     if (!res.ok) throw new Error('Failed to fetch');

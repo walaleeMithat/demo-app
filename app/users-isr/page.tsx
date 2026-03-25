@@ -1,4 +1,3 @@
-// app/isr/page.tsx
 import { User } from '../types/user';
 
 export const revalidate = 5;
