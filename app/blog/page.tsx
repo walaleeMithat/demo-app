@@ -23,7 +23,7 @@ export default function BlogPage() {
     };
 
     const handleLogin = () => {
-        if (!authModel.email && !authModel.password) {
+        if (!authModel.email || !authModel.password) {
         }
         const query = new URLSearchParams({
             email: authModel.email,
